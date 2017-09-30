@@ -9,8 +9,6 @@ class CommentList extends React.Component {
   }
 
   render(){
-    console.log(this.state.comments);
-
     if(typeof this.state.comments === 'undefined'){
       return(
         <div>
