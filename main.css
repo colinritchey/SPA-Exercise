@@ -15,7 +15,7 @@ body, div, ul, li, p {
 
 .Navbar{
   height: 35px;
-  background-color: purple;
+  background-color: #6c3f93;
   color: white;
   font-family: sans-serif;
 
@@ -36,10 +36,6 @@ body, div, ul, li, p {
 
   border-bottom: 1px solid lightgrey;
 
-}
-
-.comment-container:hover {
-  background-color: lightgrey;
 }
 
 .comment-container div{

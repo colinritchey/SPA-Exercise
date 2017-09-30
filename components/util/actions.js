@@ -1,5 +1,5 @@
-export const commentType = ( comment ) => {
-  switch (comment.nodeTypeString) {
+export const commentType = ( type ) => {
+  switch (type) {
     case 'Comment':
       return 'commented on the idea'
       break;
@@ -14,8 +14,12 @@ export const commentType = ( comment ) => {
   }
 }
 
-export const timeDiff = ( comment ) => {
-  let time = new Date() - comment.postDate;
+export const timeDiff = ( postDate ) => {
+  if(isNaN(postDate)){
+    return '';
+  }
+
+  let time = new Date() - postDate;
 
   const milSecondsInYear = 1000 * 60 * 60 * 24 * 365;
 

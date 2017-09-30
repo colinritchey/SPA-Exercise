@@ -9,15 +9,26 @@ class CommentList extends React.Component {
   }
 
   render(){
-    return(
-      <div>
+    console.log(this.state.comments);
+
+    if(typeof this.state.comments === 'undefined'){
+      return(
+        <div>
+
+        </div>
+      )
+    } else {
+      return(
+        <div>
 
         {this.state.comments.data.recentActivities.map((comment) => {
           return(<Comment key={comment.nodeid} comment={comment}/>)
         })}
 
-      </div>
-    )
+        </div>
+      )
+    }
+
   }
 }
 
