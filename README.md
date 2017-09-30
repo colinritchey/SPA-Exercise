@@ -1,6 +1,6 @@
 # SPA Application Exercise
 
-LIVE
+[LIVE](https://colinritchey.github.io/SPA-Exercise/)
 
 This is a server-less simple Single App Application that uses React and Webpack.
 
