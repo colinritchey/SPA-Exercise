@@ -22119,20 +22119,41 @@ var activity = __webpack_require__(193);
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = { comments: {} };
+    return _this;
   }
 
   _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      /*
+        If we were fetching information from a server then the function
+        would look like this:
+         let fetchedComments = fetchComments();
+         if(fetchedComments.success === true){
+          this.setState({comments: fetchedComments})
+        }
+      */
+
+      var fetchedComments = activity;
+
+      if (fetchedComments.success === true) {
+        this.setState({ comments: fetchedComments });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         { className: 'App' },
         _react2.default.createElement(_Navbar2.default, null),
-        _react2.default.createElement(_CommentList2.default, { comments: activity })
+        _react2.default.createElement(_CommentList2.default, { comments: this.state.comments })
       );
     }
   }]);
@@ -22184,9 +22205,18 @@ var CommentList = function (_React$Component) {
   }
 
   _createClass(CommentList, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.comments.data !== this.props.comments.data) {
+        this.setState({ comments: nextProps.comments });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
-      if (typeof this.state.comments === 'undefined') {
+      var comments = this.state.comments;
+
+      if (typeof comments.data === 'undefined') {
         return _react2.default.createElement('div', null);
       } else {
         return _react2.default.createElement(

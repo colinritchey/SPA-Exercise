@@ -8,8 +8,16 @@ class CommentList extends React.Component {
     this.state = { comments: this.props.comments };
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.comments.data !== this.props.comments.data){
+      this.setState({comments: nextProps.comments})
+    }
+  }
+
   render(){
-    if(typeof this.state.comments === 'undefined'){
+    let comments = this.state.comments;
+
+    if(typeof comments.data === 'undefined'){
       return(
         <div>
 

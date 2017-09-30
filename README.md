@@ -16,6 +16,8 @@ Example ajax call:
   )
 ```
 
+Within App.js you would define a state object and within ComponentDidMount function call fetchComments() to populate the state object with the new JSON object.
+
 Webpack also bundles the images, that way the 'Comment' component can require them and insert them into the <img> tag. Normally a server can provide the public folder on the front end. Ruby on Rails does this for you by default and in Node.js you would:
 
 ```javascript
