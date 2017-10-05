@@ -4,6 +4,7 @@ import CommentList from './CommentList';
 import Navbar from './Navbar';
 
 const activity = require('../activity.json');
+require('../styles.less');
 
 class App extends React.Component {
   constructor(props){
